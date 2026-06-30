@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAG explicable — un RAG local qui cite ses sources</title>
+  <meta name="description" content="Un RAG 100% local (Ollama + pgvector) qui repond a partir de tes documents et cite ses sources." />
+
+  <!-- Police Inter (Google Fonts) ; repli system-ui si hors-ligne -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- halo decoratif d'arriere-plan -->
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <a class="nav-logo" href="#top"><span class="mono">~/</span>rag-explicable</a>
+    <nav class="nav-links">
+      <a href="#projet">Le projet</a>
+      <a href="#flux">Comment ça marche</a>
+      <a href="#repo">GitHub</a>
+      <a class="nav-cta" href="/app/">Lancer l'interface</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-text reveal">
+        <span class="badge"><span class="dot"></span>Local · Ollama · pgvector</span>
+        <h1>RAG <span class="grad">explicable</span></h1>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/app/">Lancer l'interface →</a>
+          <a class="btn btn-ghost" href="#projet">Voir le projet</a>
+        </div>
+      </div>
+
+      <!-- carte terminal decorative -->
+      <div class="terminal reveal" aria-hidden="true">
+        <div class="term-bar">
+          <span class="tdot red"></span><span class="tdot amber"></span><span class="tdot green"></span>
+          <span class="term-title mono">bash — ~/RAGProjet</span>
+        </div>
+        <pre class="term-body mono"><span class="l"><span class="prompt">$</span> make up        <span class="cmt"># db pgvector + ollama</span></span>
+<span class="l"><span class="prompt">$</span> make pull      <span class="cmt"># bge-m3 + llama3.1</span></span>
+<span class="l"><span class="prompt">$</span> make ingest    <span class="cmt"># corpus → vecteurs</span></span>
+<span class="l"><span class="prompt">$</span> make app</span>
+<span class="l out">→ Running on <span class="link">http://localhost:7860</span><span class="cursor">▋</span></span></pre>
+      </div>
+    </section>
+
+    <!-- ============ LE PROJET ============ -->
+    <section id="projet" class="section">
+      <div class="section-head reveal">
+        <span class="kicker mono">// le projet</span>
+        <h2>Quatre piliers</h2>
+        <p class="muted">Un pipeline RAG pensé pour la confiance : local, traçable, sans hallucination.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card p-green reveal">
+          <span class="card-tag mono">local</span>
+          <div class="formula mono">a = LLM(q&nbsp;⊕&nbsp;C)</div>
+          <p>Ollama&nbsp;+&nbsp;pgvector, 0&nbsp;cloud.</p>
+        </article>
+
+        <article class="card p-sky reveal">
+          <span class="card-tag mono">embeddings</span>
+          <div class="formula mono">x&nbsp;↦&nbsp;v&nbsp;∈&nbsp;ℝ<sup>1024</sup></div>
+          <p>bge-m3, vecteurs denses.</p>
+        </article>
+
+        <article class="card p-amber reveal">
+          <span class="card-tag mono">anti-hallucination</span>
+          <div class="formula mono">C&nbsp;=&nbsp;∅&nbsp;⇒&nbsp;a&nbsp;=&nbsp;∅</div>
+          <p>Réponse fondée sur le contexte, sinon rien.</p>
+        </article>
+
+        <article class="card p-violet reveal">
+          <span class="card-tag mono">sources</span>
+          <div class="formula mono">top-k&nbsp;=&nbsp;arg&nbsp;min<sub>d</sub>&nbsp;‖q&nbsp;−&nbsp;d‖</div>
+          <p>Chaque réponse cite ses passages.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ COMMENT CA MARCHE ============ -->
+    <section id="flux" class="section">
+      <div class="section-head reveal">
+        <span class="kicker mono">// comment ça marche</span>
+        <h2>Le flux, exécuté</h2>
+        <p class="muted">Clique sur <span class="mono">▶</span> pour dérouler le pipeline, étape par étape.</p>
+      </div>
+
+      <!-- terminal interactif : execute le pipeline au clic -->
+      <div class="terminal run-term reveal">
+        <div class="term-bar">
+          <span class="tdot red"></span><span class="tdot amber"></span><span class="tdot green"></span>
+          <span class="term-title mono">rag — pipeline</span>
+          <button id="run-btn" class="run-btn mono" type="button">▶ Exécuter</button>
+        </div>
+        <pre class="term-body mono" id="run-out"><span class="run-line cmd">$ rag "ma question ?"</span>
+<span class="run-line"><span class="prompt">→</span> embedding bge-m3      <span class="bar"></span> <span class="note">ℝ¹⁰²⁴</span></span>
+<span class="run-line"><span class="prompt">→</span> recherche pgvector    <span class="bar"></span> <span class="note">q &lt;=&gt; d · top-k</span></span>
+<span class="run-line"><span class="prompt">→</span> contexte + llama3.1   <span class="bar"></span> <span class="note">a = LLM(q ⊕ C)</span></span>
+<span class="run-line ok">◀ réponse + sources ✓</span></pre>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer id="repo" class="footer">
+    <span class="mono muted">~/rag-explicable</span>
+    <!-- TODO: remplacer par l'URL reelle du depot -->
+    <a class="footer-repo" href="https://github.com/VOTRE-UTILISATEUR/RAGProjet" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2C6.5 2 2 6.6 2 12.3c0 4.5 2.9 8.3 6.8 9.7.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.2-3.4-1.2-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.3 9.3 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5 3.9-1.4 6.8-5.2 6.8-9.7C22 6.6 17.5 2 12 2z"/></svg>
+      <span>Voir le dépôt GitHub</span>
+    </a>
+    <span class="muted small">RAG local · Ollama · pgvector · bge-m3 · llama3.1</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

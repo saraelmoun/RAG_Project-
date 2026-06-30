@@ -1,0 +1,9 @@
+langchain
+langchain-postgres
+langchain-ollama
+psycopg[binary]
+pgvector
+datasets
+sentence-transformers
+ragas
+gradio
