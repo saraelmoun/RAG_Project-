@@ -37,7 +37,21 @@ def handle_upload(files):
             documents.append((source, f.read()))
 
     stats = ingest_documents(documents, reset=True)  # un seul corpus a la fois
-    return f"● base active : {stats['files']} fichier(s) · {stats['inserted']} chunks"
+    return (
+        f'<span class="ok">✓ base active : {stats["files"]} fichier(s) · '
+        f'{stats["inserted"]} chunks</span>'
+    )
+
+
+def on_drop(files):
+    """Statut 'en attente' au depot d'un fichier (avant ingestion)."""
+    if not files:
+        return ""
+    n = len(files)
+    return (
+        f'<span class="warn">⚠ {n} fichier(s) déposé(s) — clique sur « Ingérer » '
+        "pour l'ajouter à la base</span>"
+    )
 
 
 def handle_load_dataset(n):
@@ -61,7 +75,10 @@ def handle_load_dataset(n):
     stats = ingest_documents(documents, reset=True)
 
     loaded = [{"question": row["question"], "answer": row["answer"]} for row in ds]
-    status = f"● base active : {stats['files']} lignes · {stats['inserted']} chunks"
+    status = (
+        f'<span class="ok">✓ base active : {stats["files"]} lignes · '
+        f'{stats["inserted"]} chunks</span>'
+    )
     return status, loaded
 
 
@@ -207,6 +224,21 @@ CSS = """
 .gradio-container, .gradio-container * { font-family: var(--sans); }
 html, body, gradio-app, .gradio-container { background: var(--bg) !important; }
 .gradio-container { color: var(--text) !important; max-width: 100% !important; padding: 0 !important; }
+/* Ecrase les variables internes du theme Gradio (clair par defaut) -> tout en sombre,
+   ce qui supprime les fonds clairs residuels (composant File compris). */
+.gradio-container, gradio-app, .gradio-container .block {
+  --block-background-fill: var(--surface) !important;
+  --block-label-background-fill: var(--surface) !important;
+  --background-fill-primary: var(--bg) !important;
+  --background-fill-secondary: var(--bg-2) !important;
+  --body-background-fill: var(--bg) !important;
+  --input-background-fill: var(--bg-2) !important;
+  --border-color-primary: var(--border) !important;
+  --block-border-color: var(--border) !important;
+  --input-border-color: var(--border) !important;
+  --body-text-color: var(--text) !important;
+  --block-info-text-color: var(--text-dim) !important;
+}
 .gradio-container .gap { gap: 0 !important; }
 .gradio-container .block, .gradio-container .form { background: transparent !important; border: none !important; }
 footer { display: none !important; }
@@ -228,14 +260,18 @@ footer { display: none !important; }
 .seg label.selected, .seg input:checked + span { color: var(--neon) !important; }
 .seg label:has(input:checked) { background: rgba(34,197,94,.14) !important; color: var(--neon) !important; font-weight: 600 !important; }
 
-/* dropzone visible — TOUT en sombre (plus aucun fond clair Gradio) */
+/* dropzone visible — TOUT en sombre, AVANT et APRES depot (liste de fichiers comprise) */
 .dropzone { border: 1.5px dashed var(--border-strong) !important; border-radius: 12px !important; }
 .dropzone, .dropzone *,
-.dropzone [class*="upload"], .dropzone [data-testid], .dropzone .wrap,
-.dropzone [class*="file"], .dropzone table, .dropzone tr, .dropzone td {
-  background-color: var(--surface) !important; color: var(--text) !important;
+.dropzone .file-preview, .dropzone .upload-container, .dropzone .center,
+.dropzone [class*="upload"], .dropzone [class*="file"], .dropzone [data-testid],
+.dropzone .wrap, .dropzone label, .dropzone table, .dropzone tr, .dropzone td, .dropzone thead {
+  background: var(--surface) !important;
+  background-color: var(--surface) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
 }
-.dropzone svg { background: transparent !important; color: var(--accent) !important; }
+.dropzone svg, .dropzone svg * { background: transparent !important; color: var(--accent) !important; fill: currentColor !important; }
 .dropzone .download, .dropzone a { color: var(--accent) !important; background: transparent !important; }
 
 /* gr.Number + conteneurs de groupe de la sidebar : fond sombre, aucun blanc */
@@ -256,7 +292,9 @@ footer { display: none !important; }
   width: 100% !important; transition: background var(--t) !important;
 }
 .btn-green button:hover { background: rgba(34,197,94,.12) !important; }
-.status, .status * { color: var(--text-bright) !important; font-family: var(--mono); font-size: 12px; }
+.status, .status * { color: var(--text-bright) !important; font-family: var(--mono); font-size: 12px; line-height: 1.5; }
+.status .ok { color: var(--accent) !important; font-weight: 600; }
+.status .warn { color: var(--amber-l) !important; font-weight: 500; }
 
 .badges { display:flex; flex-direction:column; gap:6px; margin-top: 6px; }
 .cfg { font-family: var(--mono); font-size: 11px; color: var(--text-dim); border:1px solid var(--border); border-radius:999px; padding:4px 10px; }
@@ -335,12 +373,12 @@ def build_ui():
                         elem_classes="dropzone",
                     )
                     f_ingest = gr.Button("Ingérer", elem_classes="btn-green")
-                    f_status = gr.Markdown(elem_classes="status")
+                    f_status = gr.HTML(elem_classes="status")
 
                 with gr.Group(visible=False) as dataset_group:
                     d_n = gr.Number(value=100, precision=0, label="Nombre de lignes (N)")
                     d_load = gr.Button("Charger N lignes", elem_classes="btn-green")
-                    d_status = gr.Markdown(elem_classes="status")
+                    d_status = gr.HTML(elem_classes="status")
                     d_draw = gr.Button("Tirer une question", elem_classes="btn-green")
 
                 gr.HTML(
@@ -372,13 +410,15 @@ def build_ui():
 
         mode.change(switch, inputs=mode, outputs=[files_group, dataset_group])
 
+        # ---- Etat depose vs ingere ----
+        f_file.change(on_drop, inputs=f_file, outputs=f_status)
         # ---- Ingestion / dataset (feedback immediat puis traitement) ----
-        f_ingest.click(lambda: "⏳ ingestion…", outputs=f_status).then(
-            handle_upload, inputs=f_file, outputs=f_status
-        )
-        d_load.click(lambda: "⏳ chargement…", outputs=d_status).then(
-            handle_load_dataset, inputs=d_n, outputs=[d_status, dataset_state]
-        )
+        f_ingest.click(
+            lambda: '<span class="warn">⏳ ingestion…</span>', outputs=f_status
+        ).then(handle_upload, inputs=f_file, outputs=f_status)
+        d_load.click(
+            lambda: '<span class="warn">⏳ chargement…</span>', outputs=d_status
+        ).then(handle_load_dataset, inputs=d_n, outputs=[d_status, dataset_state])
         d_draw.click(
             handle_draw_question, inputs=dataset_state, outputs=[composer, pending_expected]
         )
