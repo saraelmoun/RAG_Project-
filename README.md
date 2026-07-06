@@ -1,6 +1,6 @@
 # RAG Project
 
-[RAG Explained](https://www.youtube.com/watch?v=lxxRsd60slg)
+[Vidéo Explicative] (https://www.youtube.com/watch?v=lxxRsd60slg)
 
 Système de Retrieval-Augmented Generation (RAG) entièrement local. Une base de
 connaissances vectorielle (pgvector) est interrogée pour fournir un contexte à un
