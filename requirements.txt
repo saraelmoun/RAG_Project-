@@ -2,7 +2,7 @@ langchain
 langchain-postgres
 langchain-ollama
 psycopg[binary]
-pgvector
+pgvector==0.3.6
 datasets
 sentence-transformers
 ragas
