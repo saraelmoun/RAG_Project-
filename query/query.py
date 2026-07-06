@@ -12,6 +12,7 @@ Lancer depuis la racine du projet :
 """
 
 import argparse
+import re
 
 import config
 from ingest.ingest import get_embedder  # reutilise la logique d'embedding (anti-duplication)
@@ -23,7 +24,11 @@ from langchain_ollama import OllamaLLM
 
 # Phrase exacte de repli quand l'info n'est pas dans le contexte (anti-hallucination).
 NO_ANSWER = "Je n'ai pas cette information dans mes documents."
+NO_ANSWER_EN = "I do not have this information in my documents."
 
+# Le modele repond dans la langue dominante du prompt : une simple consigne
+# "reponds dans la langue de la question" ne suffit pas avec un 8B. On garde
+# donc deux templates complets et on choisit selon la langue de la question.
 PROMPT_TEMPLATE = """Tu es un assistant qui repond a partir de documents internes.
 Reponds UNIQUEMENT a partir du CONTEXTE ci-dessous.
 Si l'information ne figure pas dans le contexte, reponds EXACTEMENT : "{no_answer}"
@@ -35,6 +40,29 @@ CONTEXTE :
 QUESTION : {question}
 
 REPONSE :"""
+
+PROMPT_TEMPLATE_EN = """You are an assistant that answers from internal documents.
+Answer ONLY from the CONTEXT below.
+If the information is not in the context, answer EXACTLY: "{no_answer}"
+Do not invent anything, do not fill in with general knowledge.
+
+CONTEXT:
+{context}
+
+QUESTION: {question}
+
+ANSWER:"""
+
+_FR_HINTS = frozenset(
+    "le la les de des du un une est sont que qui quel quelle quels quelles "
+    "pour dans sur avec combien pourquoi comment et ou est-ce faut-il".split()
+)
+
+
+def question_is_french(question):
+    """Heuristique legere : >= 2 mots-outils francais => question en francais."""
+    tokens = re.findall(r"[a-zà-ÿ'-]+", question.lower())
+    return sum(t in _FR_HINTS for t in tokens) >= 2
 
 
 def get_llm():
@@ -63,13 +91,20 @@ def retrieve(conn, question_vec, k):
 
 
 def build_prompt(question, passages):
-    """Assemble le CONTEXTE (chaque passage prefixe de sa source) + la consigne stricte."""
+    """Assemble le CONTEXTE (chaque passage prefixe de sa source) + la consigne stricte.
+
+    Le template (et la phrase de repli) suit la langue de la question.
+    """
     blocs = [
         f"[source: {source}]\n{content}" for source, content, _ in passages
     ]
     context = "\n\n---\n\n".join(blocs)
-    return PROMPT_TEMPLATE.format(
-        no_answer=NO_ANSWER, context=context, question=question
+    if question_is_french(question):
+        template, no_answer = PROMPT_TEMPLATE, NO_ANSWER
+    else:
+        template, no_answer = PROMPT_TEMPLATE_EN, NO_ANSWER_EN
+    return template.format(
+        no_answer=no_answer, context=context, question=question
     )
 
 

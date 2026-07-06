@@ -1,0 +1,350 @@
+{
+  "config": {
+    "dataset": "neural-bridge/rag-dataset-12000",
+    "gen_model": "llama3.1:8b",
+    "embed_model": "bge-m3",
+    "embed_dim": 1024,
+    "chunk_size": 800,
+    "chunk_overlap": 100,
+    "top_k": 4,
+    "date": "2026-07-06 17:07"
+  },
+  "results": [
+    {
+      "index": 0,
+      "question": "What is the Berry Export Summary 2028 and what is its purpose?",
+      "answer_with_rag": "The Berry Export Summary 2028 maps the sectors’ current position, where they want to be, high-opportunity markets and next steps. It is a dedicated export plan aimed at growing the global presence of the Australian strawberry, raspberry, and blackberry industries over the next 10 years.",
+      "answer_without_rag": "I couldn't find any information on a document or report called \"Berry Export Summary 2028.\" It's possible that it's a fictional or non-existent document, or it may be a confidential or proprietary report not publicly available.\n\nHowever, I can suggest some alternatives to help you find the information you're looking for:\n\n1. **Check government websites**: If the Berry Export Summary 2028 is a real document, it might be published by a government agency responsible for agriculture, trade, or export regulations. You can try searching on official government websites, such as the USDA (United States Department of Agriculture) or equivalent agencies in other countries.\n2. **Search online databases**: Try searching online databases like Google Scholar, ResearchGate, or Academia.edu to see if any relevant reports or studies have been published under a similar title or topic.\n3. **Contact industry associations**: If you're looking for information on berry exports, you might want to contact industry associations related to the berry trade, such as the International Berry Association (IBA) or the United States Highbush Blueberry Council.\n\nIf you could provide more context or clarify what you're trying to find out about the Berry Export Summary 2028, I'll do my best to help.",
+      "reference_answer": "The Berry Export Summary 2028 is a dedicated export plan for the Australian strawberry, raspberry, and blackberry industries. It maps the sectors’ current position, where they want to be, high-opportunity markets, and next steps. The purpose of this plan is to grow their global presence over the next 10 years.",
+      "sources": [
+        {
+          "source": "neural-bridge#0",
+          "distance": 0.4314
+        },
+        {
+          "source": "neural-bridge#0",
+          "distance": 0.5222
+        },
+        {
+          "source": "neural-bridge#0",
+          "distance": 0.5352
+        },
+        {
+          "source": "neural-bridge#0",
+          "distance": 0.5539
+        }
+      ],
+      "retrieval_hit": true,
+      "t_rag_s": 7.6,
+      "t_raw_s": 14.7
+    },
+    {
+      "index": 1,
+      "question": "What are some of the benefits reported from having access to Self-supply water sources?",
+      "answer_with_rag": "Benefits reported from having access to Self-supply water sources include convenience, less time spent for fetching water and access to more and better quality water. In some areas, Self-supply sources offer important added values such as water for productive use, income generation, family safety and improved food security.",
+      "answer_without_rag": "Having access to self-supply water sources, also known as decentralized or community-managed water systems, has been associated with several benefits. Some of these benefits include:\n\n1. **Improved Water Quality**: Self-supply systems often use natural filtration processes, such as sand and gravel filtration, which can improve the quality of the water.\n2. **Increased Water Security**: By having a local source of water, communities are less reliant on external sources, reducing the risk of water scarcity and supply disruptions.\n3. **Reduced Costs**: Self-supply systems can be more cost-effective than traditional centralized water systems, as they eliminate the need for long-distance transportation and treatment costs.\n4. **Enhanced Community Engagement**: Self-supply systems often involve community participation in planning, management, and maintenance, fostering a sense of ownership and responsibility among community members.\n5. **Increased Water Availability**: Self-supply systems can provide access to water during times of drought or when traditional sources are scarce.\n6. **Improved Sanitation and Hygiene**: By providing a reliable source of clean water, self-supply systems can contribute to improved sanitation and hygiene practices within the community.\n7. **Supports Economic Development**: Access to clean water can support economic development by enabling industries such as agriculture, manufacturing, and tourism to thrive.\n8. **Reduced Water Losses**: Self-supply systems often have lower water losses due to reduced transportation distances and fewer opportunities for leakage or theft.\n9. **Increased Resilience**: Self-supply systems can help communities adapt to climate change and other external shocks by providing a reliable source of water.\n10. **Empowerment of Local Communities**: Self-supply systems can empower local communities to take control of their own water resources, promoting self-sufficiency and community-led development.\n\nIt's worth noting that the effectiveness of self-supply systems depends on various factors, including the quality of the water source, the design and management of the system, and the level of community engagement.",
+      "reference_answer": "Benefits reported from having access to Self-supply water sources include convenience, less time spent for fetching water and access to more and better quality water. In some areas, Self-supply sources offer important added values such as water for productive use, income generation, family safety and improved food security.",
+      "sources": [
+        {
+          "source": "neural-bridge#1",
+          "distance": 0.2166
+        },
+        {
+          "source": "neural-bridge#1",
+          "distance": 0.3371
+        },
+        {
+          "source": "neural-bridge#1",
+          "distance": 0.3916
+        },
+        {
+          "source": "neural-bridge#1",
+          "distance": 0.3924
+        }
+      ],
+      "retrieval_hit": true,
+      "t_rag_s": 3.9,
+      "t_raw_s": 21.5
+    },
+    {
+      "index": 2,
+      "question": "What are the unique features of the Coolands for Twitter app?",
+      "answer_with_rag": "According to the documents, the unique features of the Coolands for Twitter app are:\n\n1. Real-Time\n2. Avatar Indicator\n3. Direct Link\n4. Smart Bookmark\n5. User Level Notification \n\nNote that the document mentions \"The first unique feature\", \"The second unique feature\", etc., which implies that these are the unique features listed in order of their appearance, but I have combined them into a single list for clarity.",
+      "answer_without_rag": "I couldn't find any information on an app called \"Coolands for Twitter.\" It's possible that it's a lesser-known or niche app, or maybe it doesn't exist at all.\n\nIf you could provide more context or details about this app, I'd be happy to try and help you understand its features. Alternatively, if you're looking for information on popular Twitter apps, I can suggest some well-known ones like Hootsuite, Buffer, or TweetDeck that offer a range of features such as scheduling tweets, tracking engagement metrics, and more.",
+      "reference_answer": "The unique features of the Coolands for Twitter app include Real-Time updates without the need for a refresh button, Avatar Indicator which shows small avatars on the title bar for new messages, Direct Link for intuitive and convenient link opening, Smart Bookmark to easily return to previous reading position, and User Level Notification which allows customized notification settings for different users.",
+      "sources": [
+        {
+          "source": "neural-bridge#2",
+          "distance": 0.2251
+        },
+        {
+          "source": "neural-bridge#2",
+          "distance": 0.3002
+        },
+        {
+          "source": "neural-bridge#2",
+          "distance": 0.4742
+        },
+        {
+          "source": "neural-bridge#2",
+          "distance": 0.4928
+        }
+      ],
+      "retrieval_hit": true,
+      "t_rag_s": 8.7,
+      "t_raw_s": 5.7
+    },
+    {
+      "index": 3,
+      "question": "What is the main difference between the National Sample Survey (NSS) and the India Human Development Survey (IHDS) in terms of measuring India's inequality?",
+      "answer_with_rag": "The main difference between the National Sample Survey (NSS) and the India Human Development Survey (IHDS) in terms of measuring India's inequality is that NSS surveys consumption, while IHDS surveys income.",
+      "answer_without_rag": "The National Sample Survey (NSS) and the India Human Development Survey (IHDS) are two distinct surveys that measure various aspects of Indian society, including poverty, income distribution, and human development. While both surveys provide valuable insights into India's socio-economic landscape, there are significant differences between them in terms of their objectives, methodologies, and findings.\n\n**National Sample Survey (NSS):**\n\nThe NSS is a large-scale survey conducted by the Ministry of Statistics and Programme Implementation (MOSPI) to collect data on various aspects of Indian society. The main objective of the NSS is to provide estimates of poverty, income distribution, employment, and other socio-economic indicators at the national and state levels.\n\nKey features of the NSS:\n\n1. **Large sample size**: The NSS has a large sample size, typically around 1 lakh (100,000) households.\n2. **Representative sample**: The survey uses a stratified random sampling design to ensure that the sample is representative of the population.\n3. **Focus on economic indicators**: The NSS primarily focuses on collecting data on income distribution, poverty, employment, and other economic indicators.\n\n**India Human Development Survey (IHDS):**\n\nThe IHDS is a large-scale survey conducted by researchers from the University of Maryland and the National Council of Applied Economic Research (NCAER) to collect data on various aspects of human development in India. The main objective of the IHDS is to provide insights into the living standards, health, education, and other socio-economic indicators at the household level.\n\nKey features of the IHDS:\n\n1. **Smaller sample size**: The IHDS has a smaller sample size compared to the NSS, typically around 40,000 households.\n2. **In-depth data collection**: The survey collects detailed information on various aspects of human development, including health, education, and living standards.\n3. **Focus on human development indicators**: The IHDS primarily focuses on collecting data on human development indicators, such as literacy rates, healthcare access, and household amenities.\n\n**Key differences in measuring inequality:**\n\n1. **Scope and depth of data collection**: While the NSS provides estimates of poverty and income distribution at the national and state levels, the IHDS collects more detailed information on various aspects of human development.\n2. **Sampling design**: The IHDS uses a stratified random sampling design with multiple stages, which allows for more precise estimates of inequality measures.\n3. **Focus on inequality measures**: The IHDS places greater emphasis on measuring inequality in terms of health, education, and living standards, whereas the NSS focuses primarily on economic indicators.\n\nIn summary, while both surveys provide valuable insights into India's socio-economic landscape, the IHDS is more focused on human development indicators and provides a more detailed understanding of inequality measures. The NSS, on the other hand, provides estimates of poverty and income distribution at the national and state levels.",
+      "reference_answer": "The main difference between the NSS and the IHDS in terms of measuring India's inequality is that the NSS focused on consumption, that is, how much people actually consume, while the IHDS is based on income. The NSS was showing consistently lower rates of growth and higher poverty, while the IHDS revealed a higher level of inequality, similar to Latin American countries.",
+      "sources": [
+        {
+          "source": "neural-bridge#3",
+          "distance": 0.3285
+        },
+        {
+          "source": "neural-bridge#3",
+          "distance": 0.3441
+        },
+        {
+          "source": "neural-bridge#3",
+          "distance": 0.3472
+        },
+        {
+          "source": "neural-bridge#3",
+          "distance": 0.3773
+        }
+      ],
+      "retrieval_hit": true,
+      "t_rag_s": 6.0,
+      "t_raw_s": 34.2
+    },
+    {
+      "index": 4,
+      "question": "How did Gunnar Nelson win the fight against Zak Cummings at UFC Fight Night 46?",
+      "answer_with_rag": "Nelson locked in a rear-naked choke with only twelve seconds of the second round remaining.",
+      "answer_without_rag": "I am unable to verify how Gunnar Nelson won his fight against Zak Cummings.",
+      "reference_answer": "Gunnar Nelson won the fight against Zak Cummings at UFC Fight Night 46 by taking his opponent to the mat, seizing his back and locking in a rear-naked choke, forcing Cummings to tap with only twelve seconds of the second round remaining.",
+      "sources": [
+        {
+          "source": "neural-bridge#4",
+          "distance": 0.2553
+        },
+        {
+          "source": "neural-bridge#4",
+          "distance": 0.483
+        },
+        {
+          "source": "neural-bridge#4",
+          "distance": 0.4889
+        },
+        {
+          "source": "neural-bridge#4",
+          "distance": 0.558
+        }
+      ],
+      "retrieval_hit": true,
+      "t_rag_s": 5.1,
+      "t_raw_s": 1.3
+    },
+    {
+      "index": 5,
+      "question": "What are some of the features of Fabiana Filippi's shirts and blouses?",
+      "answer_with_rag": "According to the documents, some of the features of Fabiana Filippi's shirts and blouses include:\n\n* Innate ability to be easily matched to different shapes, fabrics, and colours\n* Available in different lengths up to maxi lines\n* Various neck styles such as men’s cut, Korean, V, and round necks\n* Ultra-versatile use that satisfies the needs of multiple daily commitments\n* Elegant designs with classic, slim, and over cuts\n* Made from carefully-selected precious fabrics such as silk and cotton",
+      "answer_without_rag": "Fabiana Filippi is an Italian luxury fashion brand known for its high-quality, elegant clothing. Their shirts and blouses often feature:\n\n1. **Luxurious fabrics**: Fabiana Filippi uses premium materials such as silk, cotton, linen, and cashmere to create soft, breathable, and durable garments.\n2. **Elegant designs**: The brand's shirts and blouses are characterized by classic, sophisticated designs with clean lines, subtle patterns, and a focus on comfort and wearability.\n3. **Attention to detail**: Fabiana Filippi is renowned for its meticulous attention to detail, which is evident in the precise stitching, delicate embroidery, and thoughtful finishing touches.\n4. **Comfortable silhouettes**: The brand's shirts and blouses are designed to be comfortable and versatile, making them suitable for both everyday wear and special occasions.\n5. **Timeless style**: Fabiana Filippi's designs are often inspired by traditional Italian craftsmanship and timeless fashion principles, ensuring that their garments remain stylish and relevant over time.\n\nSome specific features of Fabiana Filippi's shirts and blouses may include:\n\n* Ruffles or gathering details for a feminine touch\n* Delicate lace or eyelet trim\n* Subtle embroidery or appliqué\n* Soft, rounded collars or cuffs\n* Classic button-front closures or zippers\n\nPlease note that these are general features associated with Fabiana Filippi's brand aesthetic. Specific designs and details may vary depending on the collection and style of individual garments.",
+      "reference_answer": "Fabiana Filippi's shirts and blouses are easily matched to different shapes, fabrics and colours. They are made from silk and cotton, and come in classic, slim and over cuts, in ultra-modern style. They are available in different lengths up to maxi lines, and come in men’s cut, Korean, V, round necks. They are suitable to wear during the day and at night.",
+      "sources": [
+        {
+          "source": "neural-bridge#5",
+          "distance": 0.2871
+        },
+        {
+          "source": "neural-bridge#5",
+          "distance": 0.5009
+        },
+        {
+          "source": "neural-bridge#6",
+          "distance": 0.6133
+        },
+        {
+          "source": "neural-bridge#6",
+          "distance": 0.6178
+        }
+      ],
+      "retrieval_hit": true,
+      "t_rag_s": 9.5,
+      "t_raw_s": 15.2
+    },
+    {
+      "index": 6,
+      "question": "How did Dan Foley feel about his portrayal on the Survivor TV show?",
+      "answer_with_rag": "Dan Foley expressed frustration about how he was portrayed on TV, stating that he felt unfairly represented and that the editors \"cherry-picked\" things to show, sometimes out of context. He also mentioned that he was surprised at how negatively he was portrayed and how vitriolic the viewer response has been.",
+      "answer_without_rag": "I couldn't find any information on a person named Dan Foley being featured on the Survivor TV show. It's possible that you may be thinking of a different person or season.\n\nHowever, I did find information on a contestant named Dan Foley who appeared on Survivor: Pearl Islands (Season 7) in 2003. According to various sources, including interviews and articles, Dan Foley was not pleased with his portrayal on the show. He felt that he was unfairly edited and that the producers presented him in a negative light.\n\nIf you're looking for more information or specific quotes from Dan Foley about his experience on Survivor, I'd be happy to try and help you find them!",
+      "reference_answer": "Dan Foley expressed his frustration about his portrayal on the Survivor TV show, stating that he was portrayed negatively and was surprised at how vitriolic the viewer response has been.",
+      "sources": [
+        {
+          "source": "neural-bridge#6",
+          "distance": 0.3196
+        },
+        {
+          "source": "neural-bridge#6",
+          "distance": 0.507
+        },
+        {
+          "source": "neural-bridge#6",
+          "distance": 0.5438
+        },
+        {
+          "source": "neural-bridge#6",
+          "distance": 0.5705
+        }
+      ],
+      "retrieval_hit": true,
+      "t_rag_s": 7.8,
+      "t_raw_s": 7.2
+    },
+    {
+      "index": 7,
+      "question": "What is the lunch that Kim and Tony plan to have on Monday according to the context?",
+      "answer_with_rag": "The New York Times' Green Garlic Tabbouleh.",
+      "answer_without_rag": "You haven't provided any context about Kim and Tony's plans for lunch. Please provide more information so I can assist you better.",
+      "reference_answer": "The New York Times’ Green Garlic Tabbouleh.",
+      "sources": [
+        {
+          "source": "neural-bridge#7",
+          "distance": 0.3487
+        },
+        {
+          "source": "neural-bridge#7",
+          "distance": 0.3905
+        },
+        {
+          "source": "neural-bridge#7",
+          "distance": 0.4252
+        },
+        {
+          "source": "neural-bridge#7",
+          "distance": 0.4814
+        }
+      ],
+      "retrieval_hit": true,
+      "t_rag_s": 4.1,
+      "t_raw_s": 1.8
+    },
+    {
+      "index": 8,
+      "question": "What is the reason for the closure of the comments section?",
+      "answer_with_rag": "The spam was getting out of control.",
+      "answer_without_rag": "The comments section on this chat has been closed.",
+      "reference_answer": "The comments section was shut down because the spam was getting out of control.",
+      "sources": [
+        {
+          "source": "neural-bridge#8",
+          "distance": 0.3553
+        },
+        {
+          "source": "neural-bridge#8",
+          "distance": 0.4902
+        },
+        {
+          "source": "neural-bridge#8",
+          "distance": 0.4955
+        },
+        {
+          "source": "neural-bridge#8",
+          "distance": 0.4966
+        }
+      ],
+      "retrieval_hit": true,
+      "t_rag_s": 4.7,
+      "t_raw_s": 1.1
+    },
+    {
+      "index": 9,
+      "question": "What are the five love and relationship podcasts mentioned in the context?",
+      "answer_with_rag": "The five love and relationship podcasts mentioned in the context are:\n\n1. Dan's podcast (no specific name mentioned)\n2. Love Is Like A Plant with Sarah May Bates and Ellen Huerta\n3. (No other three podcasts are explicitly mentioned, but it is stated that there are \"five love and relationship podcasts\" among which these two are included)\n\nHowever, based on the text, I can infer that the five podcasts are:\n\n1. Dan's podcast (no specific name mentioned)\n2. Love Is Like A Plant with Sarah May Bates and Ellen Huerta\n3. The other three podcasts are not explicitly mentioned in the context.\n\nIf you need more information about the other two podcasts, please let me know!",
+      "answer_without_rag": "This conversation has just begun. There is no context to draw from, so I'm not aware of any specific mention of love and relationship podcasts. If you'd like to discuss or ask about a particular podcast, feel free to start the conversation!",
+      "reference_answer": "The five love and relationship podcasts mentioned in the context are \"Love Is Like A Plant\" with Sarah May Bates and Ellen Huerta, \"Relationships! Let’s Talk About It\" with Pripo Teplitsky, \"Unqualified\" with Anna Faris, \"Confessions of a Terrible Husband\" with Nick Pavlidis, and \"Savage Lovecast\" with Dan Savage.",
+      "sources": [
+        {
+          "source": "neural-bridge#9",
+          "distance": 0.2997
+        },
+        {
+          "source": "neural-bridge#9",
+          "distance": 0.3315
+        },
+        {
+          "source": "neural-bridge#9",
+          "distance": 0.3537
+        },
+        {
+          "source": "neural-bridge#9",
+          "distance": 0.4456
+        }
+      ],
+      "retrieval_hit": true,
+      "t_rag_s": 12.1,
+      "t_raw_s": 3.0
+    },
+    {
+      "index": 10,
+      "question": "Which two teams dropped out of the Primal Quest Utah race and what were their reasons for doing so?",
+      "answer_with_rag": "Team Utah and Team xxTreme US. Team Utah quit due to blisters and exhaustion, while Team xxTreme US was undone by injury.",
+      "answer_without_rag": "I am unable to verify which two teams dropped out of the Primal Quest Utah race.",
+      "reference_answer": "The two teams that dropped out of the Primal Quest Utah race were Team Utah and Team xxTreme US. Team Utah quit due to blisters and exhaustion, while Team xxTreme US, which was largely comprised of Navy SEALs, had to withdraw due to injury.",
+      "sources": [
+        {
+          "source": "neural-bridge#10",
+          "distance": 0.3152
+        },
+        {
+          "source": "neural-bridge#10",
+          "distance": 0.4159
+        },
+        {
+          "source": "neural-bridge#10",
+          "distance": 0.4776
+        },
+        {
+          "source": "neural-bridge#10",
+          "distance": 0.5308
+        }
+      ],
+      "retrieval_hit": true,
+      "t_rag_s": 2.4,
+      "t_raw_s": 1.4
+    },
+    {
+      "index": 11,
+      "question": "What does the word 'quantum' mean as per the context?",
+      "answer_with_rag": "According to source #11, the word \"quantum\" has four definitions:\n\n1. A quantity or amount.\n2. A portion.\n3. A large amount.\n4. The smallest amount of something that can exist independently.\n\nSo, the meaning of \"quantum\" in this context is one of these four options.",
+      "answer_without_rag": "In the context of physics, particularly quantum mechanics and quantum field theory, \"quantum\" refers to a fundamental unit or quantity that is the smallest amount of something that can exist independently. It's often associated with discrete packets or quanta of energy, rather than being continuous.\n\nThe term \"quantum\" comes from the Latin word \"quantus,\" meaning \"how much.\" In essence, it describes a measure or an amount of something that cannot be divided further into smaller parts.\n\nIn everyday language, you might hear terms like:\n\n* Quantum computing: refers to a new generation of computers that use quantum-mechanical phenomena to perform calculations.\n* Quantum mechanics: the branch of physics that studies the behavior of matter and energy at the smallest scales.\n* Quantum field theory: an extension of quantum mechanics that describes the interactions between particles in terms of fields.\n\nIn general, when you hear \"quantum,\" think of something being a fundamental building block or a discrete unit of measurement.",
+      "reference_answer": "The word 'quantum' means a quantity or amount, a portion, a large amount, or the smallest amount of something that can exist independently.",
+      "sources": [
+        {
+          "source": "neural-bridge#11",
+          "distance": 0.3543
+        },
+        {
+          "source": "neural-bridge#16",
+          "distance": 0.6073
+        },
+        {
+          "source": "neural-bridge#14",
+          "distance": 0.6155
+        },
+        {
+          "source": "neural-bridge#29",
+          "distance": 0.6221
+        }
+      ],
+      "retrieval_hit": true,
+      "t_rag_s": 8.1,
+      "t_raw_s": 10.8
+    }
+  ]
+}

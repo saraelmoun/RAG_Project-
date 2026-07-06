@@ -8,6 +8,10 @@ sur les documents fournis et accompagnées de leurs sources.
 Aucune donnée ne quitte la machine : génération et embeddings sont exécutés en local,
 sans clé d'API ni service externe.
 
+![Limites des LLM sans RAG](llms-without-rag.png)
+
+![Problèmes résolus par le RAG](problems-rag-solves.png)
+
 ## Architecture
 
 Deux conteneurs Docker (images officielles) et des scripts Python.
