@@ -2,7 +2,7 @@
 
 [Vidéo Introductive] (https://www.youtube.com/watch?v=lxxRsd60slg)
 
-[Vidéo Explicative] (https://www.youtube.com/watch?v=A-mZHeecizI)
+[Vidéo Démo de notre solution] (https://www.youtube.com/watch?v=A-mZHeecizI)
 
 
 Système de Retrieval-Augmented Generation (RAG) entièrement local. Une base de
