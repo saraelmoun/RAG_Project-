@@ -6,6 +6,9 @@ __pycache__/
 # Secrets / overrides locaux
 .env
 
+# Instructions locales (non versionnees)
+CLAUDE.md
+
 # Donnees & volumes
 db_data/
 data/
